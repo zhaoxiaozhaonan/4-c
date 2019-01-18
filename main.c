@@ -35,13 +35,13 @@ int main()
             scanf("%s", arr[index].name);
 
             printf("请输入学生语文成绩\n");
-            scanf("%d",&(arr[index].yuwen));
+            scanf("%d", &(arr[index].yuwen));
 
             printf("请输入学生数学成绩\n");
             scanf("%d", &(arr[index].shuxue));
 
             printf("请输入学生英语成绩\n");
-            scanf("%d",& (arr[index].yingyu));
+            scanf("%d", &(arr[index].yingyu));
 
             index++;
             printf("添加完成，点击回车继续\n");
@@ -51,11 +51,38 @@ int main()
         }
         if (code == 2)
         {
-            /* code */
+
+            if (index > 0)
+            {
+                index--;
+                printf("删除成功，点击回车继续\n");
+            }
+            else
+            {
+                printf("删除失败，没有可删除的成绩，点击回车继续\n");
+            }
+            char x;
+            scanf("%c", &x);
+            scanf("%c", &x);
         }
         if (code == 3)
         {
-            /* code */
+
+            if (index > 0)
+            {
+                for (int i = 0; i < index; i++)
+                {
+                    printf("学生%s的语文成绩为%d,数学成绩为%d,英语成绩为%d\n", arr[i].name, arr[i].yuwen, arr[i].shuxue, arr[i].yingyu);
+                }
+            }
+            else
+            {
+                printf("无可显示的学生成绩\n");
+            }
+            printf("点击回车继续\n");
+            char x;
+            scanf("%c", &x);
+            scanf("%c", &x);
         }
         if (code == 4)
         {
