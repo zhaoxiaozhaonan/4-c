@@ -14,8 +14,6 @@ int main()
     printf("进入学生成绩管理系统\n");
     struct student arr[1000];
 
-    
-
     while (1)
     {
         printf("1--添加学生成绩\n");
@@ -24,7 +22,7 @@ int main()
         printf("4--业务1：所有总分不及格的学生（总分小于180）\n");
         printf("5--业务2：每一科都不及格的学生\n");
         printf("6--业务3：显示总分最高的学生\n");
-        printf("7--业务4：显示平均分最高的学生\n");
+        printf("7--业务4：显示平均分最高的学生,且没有布局过科目\n");
         printf("8--退出\n");
         printf("请选择所需项目：\n");
         int code;
@@ -90,7 +88,7 @@ int main()
 
             for (int i = 0; i < index; i++)
             {
-              int sum = arr[i].yuwen + arr[i].shuxue + arr[i].yingyu;
+                int sum = arr[i].yuwen + arr[i].shuxue + arr[i].yingyu;
 
                 if (sum < 180)
                 {
@@ -125,7 +123,7 @@ int main()
 
             for (int i = 0; i < index; i++)
             {
-                 int sum = arr[i].yuwen + arr[i].shuxue + arr[i].yingyu;
+                int sum = arr[i].yuwen + arr[i].shuxue + arr[i].yingyu;
 
                 if (max < sum)
                 {
@@ -147,12 +145,17 @@ int main()
 
             for (int i = 0; i < index; i++)
             {
-                aver = (arr[i].yuwen + arr[i].shuxue + arr[i].yingyu) / 3;
 
-                if (pingjun < aver)
+                if (arr[i].yuwen >= 60 && arr[i].shuxue >= 60 && arr[i].yingyu >= 60)
                 {
-                    pingjun = aver;
-                    IDD = i + 1;
+
+                    aver = (arr[i].yuwen + arr[i].shuxue + arr[i].yingyu) / 3.0;
+
+                    if (pingjun < aver)
+                    {
+                        pingjun = aver;
+                        IDD = i + 1;
+                    }
                 }
             }
             printf("第%d名学生%s的平均成绩最高，最高为%lf\n", IDD, arr[IDD - 1].name, pingjun);
