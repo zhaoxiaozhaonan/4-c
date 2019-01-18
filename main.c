@@ -120,7 +120,23 @@ int main()
         }
         if (code == 6)
         {
-            /* code */
+            int max = 0;
+            int ID;
+
+            for (int i = 0; i < index; i++)
+            {
+
+                if (max < sum)
+                {
+                    max = sum;
+                }
+                ID = i + 1;
+            }
+            printf("第%d名学生%s的总成绩最高，最高为%d\n", ID, arr[index].name, max);
+            printf("筛选完成，点击回车继续\n");
+            char x;
+            scanf("%c", &x);
+            scanf("%c", &x);
         }
         if (code == 7)
         {
