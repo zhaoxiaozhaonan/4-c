@@ -7,14 +7,14 @@ struct student
     int yingyu;
     char name[100];
 };
-
+int index = 0;
 int main()
 {
 
     printf("进入学生成绩管理系统\n");
     struct student arr[1000];
-    int index = 0;
-    int sum = 0;
+
+    
 
     while (1)
     {
@@ -90,7 +90,7 @@ int main()
 
             for (int i = 0; i < index; i++)
             {
-                sum = arr[i].yuwen + arr[i].shuxue + arr[i].yingyu;
+              int sum = arr[i].yuwen + arr[i].shuxue + arr[i].yingyu;
 
                 if (sum < 180)
                 {
@@ -121,18 +121,19 @@ int main()
         if (code == 6)
         {
             int max = 0;
-            int ID;
+            int ID = 0;
 
             for (int i = 0; i < index; i++)
             {
+                 int sum = arr[i].yuwen + arr[i].shuxue + arr[i].yingyu;
 
                 if (max < sum)
                 {
                     max = sum;
+                    ID = i + 1;
                 }
-                ID = i + 1;
             }
-            printf("第%d名学生%s的总成绩最高，最高为%d\n", ID, arr[index].name, max);
+            printf("第%d名学生%s的总成绩最高，最高为%d\n", ID, arr[ID - 1].name, max);
             printf("筛选完成，点击回车继续\n");
             char x;
             scanf("%c", &x);
@@ -140,7 +141,25 @@ int main()
         }
         if (code == 7)
         {
-            /* code */
+            double aver;
+            double pingjun = 0;
+            int IDD = 0;
+
+            for (int i = 0; i < index; i++)
+            {
+                aver = (arr[i].yuwen + arr[i].shuxue + arr[i].yingyu) / 3;
+
+                if (pingjun < aver)
+                {
+                    pingjun = aver;
+                    IDD = i + 1;
+                }
+            }
+            printf("第%d名学生%s的平均成绩最高，最高为%lf\n", IDD, arr[IDD - 1].name, pingjun);
+            printf("筛选完成，点击回车继续\n");
+            char x;
+            scanf("%c", &x);
+            scanf("%c", &x);
         }
         if (code == 8)
         {
